@@ -15,6 +15,10 @@ run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
 
+[autoload]
+
+CarvingTerrain="*res://addons/2d_terrain_carving/Scripts/global_CarvingTerrain.gd"
+
 [display]
 
 window/size/width=1000

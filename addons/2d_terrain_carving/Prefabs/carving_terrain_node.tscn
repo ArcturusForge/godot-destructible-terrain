@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clf1peqgoofsh"]
+
+[ext_resource type="Script" path="res://addons/2d_terrain_carving/Scripts/CarvingTerrain.gd" id="1_rp3eq"]
+
+[node name="CarvingTerrainNode" type="Node2D"]
+script = ExtResource("1_rp3eq")
