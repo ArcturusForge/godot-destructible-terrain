@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1vwqk3x2hq8a"]
 
-[ext_resource type="Script" path="res://Quadrant.gd" id="1_pwo2e"]
+[ext_resource type="Script" path="res://addons/2d_terrain_carving/Scripts/Quadrant.gd" id="1_cjcn5"]
 
 [node name="Quadrant" type="Node2D"]
-script = ExtResource("1_pwo2e")
+script = ExtResource("1_cjcn5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

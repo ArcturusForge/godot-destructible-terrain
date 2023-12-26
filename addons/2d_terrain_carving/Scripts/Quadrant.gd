@@ -2,7 +2,6 @@ extends Node2D
 
 var default_quadrant_polygon: Array = []
 @onready var static_body = $StaticBody2D
-@onready var ColPol = preload("res://ColPol.tscn")
 
 func _ready():
 	init_quadrant()
@@ -113,6 +112,6 @@ func _new_colpol(polygon):
 	Returns ColPol instance
 	with assigned polygon
 	"""
-	var colpol = ColPol.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	var colpol = CarvingTerrain._collision_shape.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
 	colpol.polygon = polygon
 	return colpol

@@ -27,6 +27,10 @@ window/size/width=1000
 
 project/assembly_name="Destructible terrain"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/2d_terrain_carving/plugin.cfg")
+
 [input]
 
 click_left={

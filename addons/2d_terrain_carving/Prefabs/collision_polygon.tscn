@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2g1i2ykaxi16"]
+
+[ext_resource type="Script" path="res://addons/2d_terrain_carving/Scripts/collision_polygon.gd" id="1_21age"]
+[ext_resource type="Texture2D" uid="uid://d37kstyux6qnm" path="res://addons/2d_terrain_carving/Demo/Graphics/texture.png" id="2_01x0w"]
+
+[node name="ColPol" type="CollisionPolygon2D"]
+script = ExtResource("1_21age")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource("2_01x0w")

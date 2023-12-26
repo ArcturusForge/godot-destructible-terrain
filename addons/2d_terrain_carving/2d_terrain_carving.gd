@@ -3,10 +3,10 @@ extends EditorPlugin
 
 
 func _enter_tree():
-	# Initialization of the plugin goes here.
+	add_autoload_singleton("CarvingTerrain", "res://addons/2d_terrain_carving/Scripts/global_CarvingTerrain.gd")
 	pass
 
 
 func _exit_tree():
-	# Clean-up of the plugin goes here.
+	remove_autoload_singleton("CarvingTerrain")
 	pass
