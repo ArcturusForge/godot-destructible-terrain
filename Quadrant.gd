@@ -1,8 +1,8 @@
 extends Node2D
 
 var default_quadrant_polygon: Array = []
-onready var static_body = $StaticBody2D
-onready var ColPol = preload("res://ColPol.tscn")
+@onready var static_body = $StaticBody2D
+@onready var ColPol = preload("res://ColPol.tscn")
 
 func _ready():
 	init_quadrant()
@@ -30,7 +30,7 @@ func carve(clipping_polygon):
 	Carves the clipping_polygon away from the quadrant
 	"""
 	for colpol in static_body.get_children():
-		var clipped_polygons = Geometry.clip_polygons_2d(colpol.polygon, clipping_polygon)
+		var clipped_polygons = Geometry2D.clip_polygons(colpol.polygon, clipping_polygon)
 		var n_clipped_polygons = len(clipped_polygons)
 		match n_clipped_polygons:
 			0:
@@ -47,7 +47,7 @@ func carve(clipping_polygon):
 					# split and add
 					for p in _split_polygon(clipping_polygon):
 						var new_colpol = _new_colpol(
-							Geometry.intersect_polygons_2d(p, colpol.polygon)[0]
+							Geometry2D.intersect_polygons(p, colpol.polygon)[0]
 							)
 						static_body.add_child(new_colpol)
 					colpol.free()
@@ -84,8 +84,8 @@ func _split_polygon(clip_polygon: Array):
 	var right_subquadrant = default_quadrant_polygon.duplicate()
 	right_subquadrant[0] = Vector2(avg_x, right_subquadrant[0].y)
 	right_subquadrant[3] = Vector2(avg_x, right_subquadrant[3].y)
-	var pol1 = Geometry.clip_polygons_2d(left_subquadrant, clip_polygon)[0]
-	var pol2 = Geometry.clip_polygons_2d(right_subquadrant, clip_polygon)[0]
+	var pol1 = Geometry2D.clip_polygons(left_subquadrant, clip_polygon)[0]
+	var pol2 = Geometry2D.clip_polygons(right_subquadrant, clip_polygon)[0]
 	return [pol1, pol2]
 
 
@@ -94,7 +94,7 @@ func _is_hole(clipped_polygons):
 	If either of the two polygons after clipping
 	are clockwise, then you have carved a hole
 	"""
-	return Geometry.is_polygon_clockwise(clipped_polygons[0]) or Geometry.is_polygon_clockwise(clipped_polygons[1])
+	return Geometry2D.is_polygon_clockwise(clipped_polygons[0]) or Geometry2D.is_polygon_clockwise(clipped_polygons[1])
 
 
 func _avg_position(array: Array):
@@ -113,6 +113,6 @@ func _new_colpol(polygon):
 	Returns ColPol instance
 	with assigned polygon
 	"""
-	var colpol = ColPol.instance()
+	var colpol = ColPol.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
 	colpol.polygon = polygon
 	return colpol

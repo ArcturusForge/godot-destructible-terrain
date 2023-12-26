@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1703584149
+ColPol.gd::GDScript::-1::1703584075::0::1::::<>CollisionPolygon2D<>::
+ColPol.tscn::PackedScene::-1::1703584075::0::1::::<><>::res://texture.png<>res://ColPol.gd
+default_env.tres::Environment::-1::1703584075::0::1::::<><>::
+icon.png::CompressedTexture2D::2961797018115852999::1703584075::1703584150::1::::<><>::
+Main.gd::GDScript::-1::1703584075::0::1::::<>Node2D<>::
+Main.tscn::PackedScene::-1::1703584075::0::1::::<><>::res://Main.gd
+Quadrant.gd::GDScript::-1::1703584075::0::1::::<>Node2D<>::
+Quadrant.tscn::PackedScene::-1::1703584075::0::1::::<><>::res://Quadrant.gd
+README.md::TextFile::-1::1703584075::0::1::::<><>::
+RigidBody.tscn::PackedScene::-1::1703584075::0::1::::<><>::res://rigid_sprite.png
+rigid_sprite.png::CompressedTexture2D::4537777539449460546::1703584075::1703584150::1::::<><>::
+texture.png::CompressedTexture2D::916171536591159677::1703584075::1703584150::1::::<><>::
