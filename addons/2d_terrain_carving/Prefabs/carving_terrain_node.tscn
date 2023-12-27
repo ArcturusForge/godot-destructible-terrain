@@ -4,3 +4,4 @@
 
 [node name="CarvingTerrainNode" type="Node2D"]
 script = ExtResource("1_rp3eq")
+line_thickness = null

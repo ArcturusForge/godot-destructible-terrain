@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcsokpx8iy8h2"]
 
 [ext_resource type="Script" path="res://addons/2d_terrain_carving/Demo/Scripts/Terrain_Manual_Demo.gd" id="1_4y4i8"]
-[ext_resource type="PackedScene" path="res://addons/2d_terrain_carving/Demo/Prefabs/RigidBody.tscn" id="2_n4ttq"]
+[ext_resource type="PackedScene" uid="uid://dvgr13hsc6tf8" path="res://addons/2d_terrain_carving/Demo/Prefabs/RigidBody.tscn" id="2_n4ttq"]
 [ext_resource type="PackedScene" uid="uid://clf1peqgoofsh" path="res://addons/2d_terrain_carving/Prefabs/carving_terrain_node.tscn" id="2_som2j"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("carve_area", "rigidbody_parent", "terrain")]
@@ -12,9 +12,16 @@ terrain = NodePath("CarvingTerrainNode")
 rb_ball = ExtResource("2_n4ttq")
 
 [node name="CarvingTerrainNode" parent="." instance=ExtResource("2_som2j")]
+line_thickness = 2
 
 [node name="CarveArea" type="Polygon2D" parent="."]
 color = Color(1, 0.635294, 0.635294, 0.784314)
 polygon = PackedVector2Array(-36, -35, 36, -35, 36, 33, -36, 33)
+metadata/_edit_lock_ = true
 
 [node name="RigidBodies" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(511, 239)
+metadata/_edit_lock_ = true

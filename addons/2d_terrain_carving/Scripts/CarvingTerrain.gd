@@ -1,10 +1,32 @@
+@tool
 extends Node2D
 
+@export_category("Config")
 @export var quadrant_size :int = 100
 @export var quadrant_grid_size := Vector2(10,5)
 
+@export_category("Debug")
+@export var draw_preview := true
+@export var line_thickness :int = 1
+
 var quadrant_parent:Node2D = self
 var quadrants_grid: Array = []
+
+func _draw():
+	if Engine.is_editor_hint() && draw_preview:
+		for x in range(quadrant_grid_size.x):
+			for y in range(quadrant_grid_size.y):
+				draw_line(Vector2(1*x,0), Vector2((quadrant_size*x)+quadrant_size,0), Color.AQUAMARINE, line_thickness)
+				draw_line(Vector2(0,1*y), Vector2(0,(quadrant_size*y)+quadrant_size), Color.AQUAMARINE, line_thickness)
+				draw_line(Vector2((quadrant_size*x)+quadrant_size,0), Vector2((quadrant_size*x)+quadrant_size,(quadrant_size*y)+quadrant_size), Color.AQUAMARINE, line_thickness)
+				draw_line(Vector2(0,(quadrant_size*y)+quadrant_size), Vector2((quadrant_size*x)+quadrant_size,(quadrant_size*y)+quadrant_size), Color.AQUAMARINE, line_thickness)
+		
+	
+
+func _process(delta):
+	if Engine.is_editor_hint():
+		queue_redraw()
+	
 
 func generate_terrain(q_size=quadrant_size, q_grid_size=quadrant_grid_size):
 	quadrant_size = q_size
@@ -41,7 +63,7 @@ func _get_affected_quadrants(pos, carve_radius):
 		if quadrant_center.distance_to(pos) <= carve_radius + half_diag:
 			affected_quadrants.push_back(quadrant)
 	return affected_quadrants
-
+	
 
 func carve(position, carveArea:Polygon2D, carveRadius:int):
 	var carve_polygon = Transform2D(0, position) * carveArea.polygon
